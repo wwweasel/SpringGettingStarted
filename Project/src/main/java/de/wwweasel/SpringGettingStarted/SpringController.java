@@ -1,24 +1,27 @@
 package de.wwweasel.SpringGettingStarted;
 
-import org.springframework.web.bind.annotation.PathVariable;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
+@Controller
 public class SpringController {
 	
 	
 	@RequestMapping(method=RequestMethod.GET,value="/")
-	public String helloWorld(@RequestParam(defaultValue="World") String name) {
-		String greeting = "Hello ";
-		return greeting + name;
+	public String helloWorld(Model model) {
+		return "index";
 	}
 	
-	@RequestMapping(method=RequestMethod.GET,value="/{name}")
-	public String helloWorldPathVariable(@PathVariable("name") String name) {
-		String greeting = "Hello ";
-		return greeting + name;
+	@RequestMapping(method=RequestMethod.POST,value="/greet")
+	@ResponseBody
+	public Transport greet(@RequestBody Transport transport) {
+		return transport;
 	}
+	
 }

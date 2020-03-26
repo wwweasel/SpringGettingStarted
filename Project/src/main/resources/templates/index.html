@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head >
+	<link rel="shortcut icon" href="">
+	<meta charset="UTF-8"/>
+	
+	<script type="text/javascript" src="webjars/jquery/3.4.0/jquery.min.js"></script>
+	<script th:src="@{/main.js}"></script>
+	
+</head>
+
+<body>
+	
+	<form id="postForm"><!-- Called by JQUERY/AJAX -->
+		<label for="name">Name:</label>
+		<input type="text" name="name" id="name" placeholder="name"></input>
+		<button type="submit" id="JSBtn">send</button>
+	</form>
+	
+	<div>
+		<p class="namereceiver"> Hello World ! </p>
+	</div>
+	
+</body>
+</html>
